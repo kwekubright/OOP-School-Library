@@ -1,4 +1,4 @@
-require 'securerandaom'
+require 'securerandom'
 
 class Person
   attr_accessor :name, :age
@@ -11,13 +11,11 @@ class Person
     @age = age
   end
 
-  # rubocop:disable  Naming/PredicateName
-  def is_of_age?
+  def of_age?
     return true if @age >= 18
 
     false
   end
-  # rubocop:enable Naming/PredicateName
 
   def can_use_services
     return true if is_of_age? || @parent_permission
