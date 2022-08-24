@@ -1,14 +1,19 @@
 require 'securerandom'
+require_relative 'nameable'
+require_relative 'capitalize'
+require_relative 'trimmer'
+require_relative 'base_decorator'
 
-class Person
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(age, name = 'Unkown', parent_permission: true)
+  def initialize(age:, name: 'Unkown', parent_permission: true)
     @id = SecureRandom.uuid
     @name = name
     @parent_permission = parent_permission
     @age = age
+    super
   end
 
   def of_age?
@@ -18,10 +23,14 @@ class Person
   end
 
   def can_use_services
-    return true if is_of_age? || @parent_permission
+    return true if of_age? || @parent_permission
 
     false
   end
 
-  private :is_of_age?
+  def correct_name
+    @name
+  end
+
+  private :of_age?
 end
