@@ -1,13 +1,12 @@
-class Decorator < Nameableat
-  attr_accessor: nameable
+class Decorator < Nameable
+  attr_accessor :nameable
 
   def initialize(nameable)
+    super()
     @nameable = nameable
-
   end
 
   def correct_name
     @nameable.correct_name
-
   end
 end
