@@ -10,16 +10,7 @@ class Book
     @rentals = []
   end
 
-  def title
-    @title
-  end
-
-  def author
-    @author
-  end
-
   def add_rental
     @rentals.push(rental)
   end
-
 end
