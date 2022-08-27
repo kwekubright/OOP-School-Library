@@ -1,4 +1,5 @@
 require_relative 'app'
+require 'pry'
 
 class Main
   puts 'Welcome to School Library App'
@@ -18,7 +19,7 @@ class Main
     @menu.each do |key, menu|
       puts "#{key} - #{menu}"
     end
-    Integer(gets.chomp)
+    gets.chomp.to_i
   end
 
   selected_option = App.new
