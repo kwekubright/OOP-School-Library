@@ -9,13 +9,12 @@ class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id, :rentals
 
-  def initialize(age:, name: 'Unkown', parent_permission: true)
+  def initialize(age, name = 'Unkown', parent_permission = true)
     @id = SecureRandom.uuid
     @name = name
     @parent_permission = parent_permission
     @age = age
     @rentals = []
-    super
   end
 
   def of_age?
